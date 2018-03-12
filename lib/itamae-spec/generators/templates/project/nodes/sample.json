@@ -1,0 +1,10 @@
+{
+  "run_list": [
+    "recipe[sample]",
+    "role[sample]"
+    ],
+  "environments": {
+    "set": "sample",
+    "hostname": "sample"
+  }
+}

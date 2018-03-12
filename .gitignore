@@ -1,0 +1,14 @@
+*.gem
+*.rbc
+.bundle
+.config
+Gemfile.lock
+Gemfile.local
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+.vagrant
+logs

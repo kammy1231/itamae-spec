@@ -1,0 +1,9 @@
+### Itamae task
+require 'itamae-spec/task/itamae_task'
+
+### Serverspec task
+require 'itamae-spec/task/serverspec_task'
+
+### Local Mode
+# require 'itamae-spec/task/local_itamae_task'
+# require 'itamae-spec/task/local_serverspec_task'
