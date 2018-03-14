@@ -25,7 +25,6 @@ It can be provisioning using itamae's some AWS resources.}
   spec.add_runtime_dependency "itamae", "1.9.11"
   spec.add_runtime_dependency "rake"
   spec.add_runtime_dependency "multi_json"
-  spec.add_runtime_dependency "io-console"
   spec.add_runtime_dependency "bundler"
   spec.add_runtime_dependency "highline"
 
@@ -34,5 +33,4 @@ It can be provisioning using itamae's some AWS resources.}
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "docker-api", "~> 1.20"
   spec.add_development_dependency "fakefs"
-  spec.add_development_dependency "fluent-logger"
 end
