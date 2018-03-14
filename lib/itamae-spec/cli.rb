@@ -1,7 +1,7 @@
 require 'itamae-spec'
 
-module Itamae
-  class CLI
+module ItamaeSpec
+  class CLI < Itamae::CLI
     # Support for password authentication
     option :password, type: :string, desc: 'input ssh password'
 
@@ -10,6 +10,10 @@ module Itamae
 
       Itamae.logger.level = ::Logger.const_get(options[:log_level].upcase) if options[:log_level]
       Itamae.logger.formatter.colored = options[:color] if options[:color]
+    end
+
+    def version
+      puts "Itamae-Spec v#{ItamaeSpec::VERSION}"
     end
   end
 end
