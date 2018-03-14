@@ -13,12 +13,7 @@ Customized version of Itamae
 
 ```
 $ gem install itamae-spec
-$ itamae init your-project-name
-```
-
-## Tips for AmazonLinux ready to Installation
-```
-$ yum install ruby-devel ruby20-devel gcc-c++ rubygem20-io-console
+$ itamae-spec init your-project-name
 ```
 
 ## If you want to use the AWS Resources
