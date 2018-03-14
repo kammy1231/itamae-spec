@@ -1,4 +1,3 @@
-require 'itamae'
 require 'itamae-spec/task/base_task'
 
 module ItamaeSpec

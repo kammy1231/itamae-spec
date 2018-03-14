@@ -66,7 +66,7 @@ module ItamaeSpec
       def create_itamae_command(node_name, hash)
         ENV['SUDO_PASSWORD'] if hash[:environments][:sudo_password]
 
-        command = 'bundle exec itamae ssh'
+        command = 'bundle exec itamae-spec ssh'
         command << if hash[:environments][:local_ipv4]
                      " -h #{hash[:environments][:local_ipv4]}"
                    else

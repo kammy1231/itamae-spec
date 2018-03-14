@@ -1,4 +1,5 @@
 require 'multi_json'
+require 'itamae'
 
 module ItamaeSpec
   module Task

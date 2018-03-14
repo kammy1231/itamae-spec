@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require "itamae-spec/cli"
-Itamae::CLI.start
+ItamaeSpec::CLI.start

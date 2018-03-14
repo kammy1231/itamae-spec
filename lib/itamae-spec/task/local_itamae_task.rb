@@ -1,11 +1,10 @@
-require 'itamae'
 require 'itamae-spec/task/base_task'
 
 module ItamaeSpec
   module Task
     class LocalItamaeTask < BaseTask
       def create_itamae_command(node_name, hash)
-        command = 'bundle exec itamae local'
+        command = 'bundle exec itamae-spec local'
         command << " -j tmp-nodes/#{node_name}.json"
 
         hash[:environments][:shell] = ENV['shell'] if ENV['shell']
