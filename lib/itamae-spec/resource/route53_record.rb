@@ -74,10 +74,12 @@ module Itamae
       private
 
       def define_change_batch
-        if attributes.value
+        if attributes.value.class == Array
           resource_records = attributes.value.map do |v|
             { value: v }
           end
+        elsif attributes.value.class == String
+          resource_records = Array.new(1, { value: attributes.value })
         end
 
         resource_record_set = {
