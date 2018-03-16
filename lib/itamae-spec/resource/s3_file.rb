@@ -3,7 +3,7 @@ require 'aws-sdk'
 module Itamae
   module Resource
     class S3File < File
-      define_attribute :object_key, type: String, default_name: true
+      define_attribute :object_key, type: String, required: true
       define_attribute :region, type: String, required: true
       define_attribute :bucket, type: String, required: true
       define_attribute :profile, type: String, default: 'default'
