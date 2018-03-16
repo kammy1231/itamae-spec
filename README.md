@@ -21,6 +21,15 @@ $ itamae-spec init your-project-name
 $ aws configure
 ```
 
+## Tips for git user
+- Add this content to your `.gitignore`
+```
+tmp-nodes/
+logs/
+Project.json
+!.keep
+```
+
 ## Getting Started
 - [Getting Started](https://github.com/kammy1231/itamae-spec/wiki/Getting-Started)
 
