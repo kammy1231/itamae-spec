@@ -90,12 +90,7 @@ module ItamaeSpec
 
             begin
               run_list = task.load_run_list(node_file)
-              environments = task.load_environments(node)
-              recipe_attributes_list = task.load_recipe_attributes(run_list)
-
-              merged_recipe = task.merge_attributes(recipe_attributes_list)
-              merged_environments = task.merge_attributes(merged_recipe, environments)
-              attributes = task.merge_attributes(merged_environments, node)
+              attributes = task.apply_attributes(node_file)
               task.create_tmp_nodes(node_name, attributes)
 
               command = task.create_spec_command(node_name, attributes)

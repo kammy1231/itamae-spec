@@ -21,7 +21,7 @@ module ItamaeSpec
       end
 
       Itamae.logger.formatter.colored = true
-      task = ItamaeTask.new
+      task = BaseTask.new
 
       namespace :itamae do
         all = []
@@ -77,12 +77,7 @@ module ItamaeSpec
 
             begin
               run_list = task.load_run_list(node_file)
-              environments = task.load_environments(node)
-              recipe_attributes_list = task.load_recipe_attributes(run_list)
-
-              merged_recipe = task.merge_attributes(recipe_attributes_list)
-              merged_environments = task.merge_attributes(merged_recipe, environments)
-              attributes = task.merge_attributes(merged_environments, node)
+              attributes = task.apply_attributes(node_file)
               task.create_tmp_nodes(node_name, attributes)
 
               command = task.create_itamae_command(node_name, attributes)
@@ -100,6 +95,7 @@ module ItamaeSpec
                 exit 1
               end
             rescue => e
+              Itamae.logger.error e.backtrace[0]
               Itamae.logger.error e.inspect
               Itamae.logger.info "From node file: #{node_file}"
               exit 2

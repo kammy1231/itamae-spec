@@ -5,6 +5,7 @@ module ItamaeSpec
   module Task
     module Base
       RoleLoadError = Class.new(StandardError)
+      EnvironmentsLoadError = Class.new(StandardError)
 
       class ::Hash
         def deep_merge(other_hash, &block)
@@ -39,6 +40,31 @@ module ItamaeSpec
       end
 
       class << self
+        def get_roles(node_file)
+          roles = []
+          JSON.parse(File.read(node_file))['run_list'].each do |recipe|
+            if /role\[(.+)\]/.match?(recipe)
+              roles << recipe.gsub(/role\[(.+)\]/, '\1')
+            end
+          end
+        rescue JSON::ParserError
+          raise RoleLoadError, "JSON Parser Faild. - #{node_file}"
+        rescue Errno::ENOENT
+          raise RoleLoadError, "No such node file or directory - #{node_fie}"
+        else
+          roles
+        end
+
+        def get_environments(node_file)
+          environments = JSON.parse(File.read(node_file))['environments']['set']
+        rescue JSON::ParserError
+          raise EnvironmentsLoadError, "JSON Parser Faild. - #{node_file}"
+        rescue Errno::ENOENT
+          raise EnvironmentsLoadError, "No such node file or directory - #{node_fie}"
+        else
+          environments
+        end
+
         def get_role_recipes(role)
           recipes = []
           JSON.parse(File.read("roles/#{role}.json"))['run_list'].each do |recipe|
