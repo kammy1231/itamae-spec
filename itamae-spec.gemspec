@@ -20,7 +20,10 @@ It can be provisioning using itamae's some AWS resources.}
   spec.require_paths = ["lib"]
   spec.required_ruby_version = Gem::Requirement.new(">= 2.0")
 
-  spec.add_runtime_dependency "aws-sdk", "~> 2"
+  spec.add_runtime_dependency "aws-sdk-core", "~> 3"
+  spec.add_runtime_dependency "aws-sdk-ec2"
+  spec.add_runtime_dependency "aws-sdk-s3"
+  spec.add_runtime_dependency "aws-sdk-route53"
   spec.add_runtime_dependency "serverspec", "~> 2.1"
   spec.add_runtime_dependency "itamae", "1.9.11"
   spec.add_runtime_dependency "rake"

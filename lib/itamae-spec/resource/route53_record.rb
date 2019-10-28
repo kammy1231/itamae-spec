@@ -1,4 +1,5 @@
 require 'multi_json'
+require 'aws-sdk-route53'
 
 module Itamae
   module Resource
