@@ -79,7 +79,7 @@ module ItamaeSpec
         merged_recipe = merge_attributes(recipe_attributes_list)
         merged_environments = merge_attributes(merged_recipe, environments_attributes)
         merged_role_each = merge_attributes(role_attributes_list)
-        merged_role = merge_attributes(merged_role_each, merged_environments)
+        merged_role = merge_attributes(merged_environments, merged_role_each)
         attributes = merge_attributes(merged_role, node_attributes)
       end
 
